@@ -5,10 +5,10 @@
 /*  FONTS  */
 
 h1 {
-  font-family: "Baskervville", sans-serif;
-  color: #213b74;
-  font-size: 1.5rem;
-  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  color: #0d1930;
+  font-size: 2.5rem;
+  text-align: left;
   letter-spacing: 0.8rem;
   text-transform: uppercase;
   font-weight: 300;
@@ -26,7 +26,6 @@ nav {
 }
 
 nav ul {
-  background-color: #cb9269;
   text-align: center;
   padding: 0px;
   z-index: 1;
@@ -94,7 +93,6 @@ li a:hover {
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #cb9269;
     top: 0;
     width: 100%;
   }
@@ -107,7 +105,6 @@ li a:hover {
   }
 
   header {
-    background-color: #cb9269;
     text-align: center;
   }
 }
