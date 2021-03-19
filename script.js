@@ -10,6 +10,8 @@ function start() {
 
   // register toggle-clicks
   document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
+
+  startFetch();
 }
 
 //
@@ -36,12 +38,10 @@ function toggleMenu() {
 //Adding a global variable
 let elementToPaint;
 
-document.addEventListener("DOMContentLoaded", start);
-
-async function start() {
+async function startFetch() {
   let response = await fetch("/images/case_conf2-01.svg");
   let mySvgData = await response.text();
-  document.querySelector("#configurator").innerHTML = mySvgData;
+  document.querySelector("#product-preview").innerHTML = mySvgData;
 
   startManipulatingTheSvg();
 }
@@ -90,14 +90,14 @@ function colorClick() {
 const features = {
   handle1: false,
   handle2: false,
-  propeller: false,
-  shield: false,
-  solarfan: false,
+  lock1: false,
+  lock2: false,
 };
 
 function toggleOption(event) {
   const target = event.currentTarget;
   const feature = target.dataset.feature;
+  console.log("this is also working");
 
   // TODO: Toggle feature in "model"
   features[feature] = !features[feature];
