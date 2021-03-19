@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
     <title>Product - Advanced Animation Project</title>
   </head>
   <body>
     <header>
       <div id="menuknap">☰</div>
       <div class="top-container">
-        <h1>The Configurator Page</h1>
+        <h1>
+          THE <br />
+          CONFIGURATOR <br />PAGE
+        </h1>
       </div>
     </header>
 
@@ -25,23 +29,22 @@
     <div id="configurator">
       <div id="product-preview">
         <!-- DONE: add all feature image layers -->
-        <img src="images/cap_basic.png" alt="" class="basic" data-feature="basic" />
-        <img src="images/cap_drinksholder.png" alt="" class="hide" data-feature="drinksholder" />
-        <img src="images/cap_led.png" alt="" class="hide" data-feature="led" />
-        <img src="images/cap_propeller.png" alt="" class="hide" data-feature="propeller" />
-        <img src="images/cap_shield_back.png" alt="" class="hide" data-feature="shield_back" />
-        <img src="images/cap_shield_front.png" alt="" class="hide" data-feature="shield_front" />
-        <img src="images/cap_solarfan.png" alt="" class="hide" data-feature="solarfan" />
+        <img src="images/case_conf2-01.svg" alt="" class="basic" data-feature="basic" />
+        <img src="images/handle1.png" alt="" class="hide" data-feature="handle1" />
+        <img src="images/handle2.png" alt="" class="hide" data-feature="handle2" />
+        <img src="images/lock1.svg" alt="" class="hide" data-feature="propeller" />
+        <img src="images/lock2.svg" alt="" class="hide" data-feature="shield_back" />
       </div>
+
       <div id="options">
         Available features
-        <figure class="option" data-feature="drinksholder">
-          <img src="images/feature_drinksholder.png" alt="Drinksholder" />
-          <figcaption>Drinks holder</figcaption>
+        <figure class="option" data-feature="handle1">
+          <img src="images/feature_handle1.png" alt="Handle" />
+          <figcaption>Handle 1</figcaption>
         </figure>
-        <figure class="option" data-feature="led">
-          <img src="images/feature_led.png" alt="LED" />
-          <figcaption>LED text</figcaption>
+        <figure class="option" data-feature="handle2">
+          <img src="images/feature_handle2.png" alt="Handle" />
+          <figcaption>Handle 2</figcaption>
         </figure>
         <figure class="option" data-feature="propeller">
           <img src="images/feature_propeller.png" alt="Propeller" />
@@ -63,5 +66,18 @@
         </ul>
       </div>
     </div>
+
+    <svg viewBox="0 0 842 200">
+      <rect class="color_btn" width="90" height="80" fill="#EAF2E4"></rect>
+      <rect class="color_btn" x="100" width="90" height="80" fill="#858C80"></rect>
+      <rect class="color_btn" x="200" width="90" height="80" fill="#597346"></rect>
+      <rect class="color_btn" x="300" width="90" height="80" fill="#182612"></rect>
+      <rect class="color_btn" x="400" width="90" height="80" fill="#BAC0E6"></rect>
+      <rect class="color_btn" x="500" width="90" height="80" fill="#ACA6F0"></rect>
+      <rect class="color_btn" x="600" width="90" height="80" fill="#3B5FA8"></rect>
+      <rect class="color_btn" x="700" width="90" height="80" fill="#001175"></rect>
+    </svg>
+
+    <script src="script.js"></script>
   </body>
 </html>

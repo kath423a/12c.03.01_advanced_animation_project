@@ -136,6 +136,7 @@ li a:hover {
   padding: 10px 20px;
 }
 
+/*  */
 /* CONFIGURATOR PAGE STYLES */
 :root {
   font-family: "Quicksand", sans-serif;
@@ -259,4 +260,23 @@ li a:hover {
   100% {
     transform: translate(0, 0) scale(1);
   }
+}
+
+/*  */
+/* STYLES FOR THE SVG PRODUCT */
+
+section {
+  max-width: 600px;
+}
+
+.g_to_interact {
+  fill: transparent;
+}
+
+#Shadow_Image {
+  pointer-events: none;
+}
+
+path {
+  stroke-width: 2;
 }
