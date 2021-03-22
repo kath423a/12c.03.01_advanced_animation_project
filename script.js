@@ -9,7 +9,9 @@ function start() {
   document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
   // register toggle-clicks
-  document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
+  document
+    .querySelectorAll(".option")
+    .forEach((option) => option.addEventListener("click", toggleOption));
 
   startFetch();
 }
@@ -107,7 +109,9 @@ function toggleOption(event) {
     target.classList.add("chosen");
 
     //Remove the hide class
-    document.querySelector(`[data-feature="${feature}"`).classList.remove("hide");
+    document
+      .querySelector(`[data-feature="${feature}"`)
+      .classList.remove("hide");
 
     //Create new featureElement and add it to the list
     const newfeatureElement = createFeatureElement(feature);
@@ -128,7 +132,9 @@ function toggleOption(event) {
     newfeatureElement.classList = "animate-feature-in";
   } else {
     target.classList.remove("chosen");
-    const theFeatureElement = document.querySelector(`#selected [data-feature="${feature}"]`);
+    const theFeatureElement = document.querySelector(
+      `#selected [data-feature="${feature}"]`
+    );
 
     const end = theFeatureElement.getBoundingClientRect();
     const start = target.getBoundingClientRect();
@@ -142,6 +148,8 @@ function toggleOption(event) {
     theFeatureElement.offsetHeight;
 
     //Animation feature out
+    //Animation feature out
+
     theFeatureElement.classList = "animate-feature-out";
 
     //when animation is complete, remove featureElement from the DOM
