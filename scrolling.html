@@ -6,6 +6,64 @@
     <title>About - Advanced Animation Project</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h2 {
+        text-align: center;
+        padding-top: 20px;
+      }
+
+      p {
+        text-align: center;
+        padding: 25px 300px 25px 300px;
+        line-height: 30px;
+      }
+
+      section {
+        height: 50vh;
+        max-width: 100%;
+      }
+
+      .the_container {
+        /* height: calc(100vh - 16.8px); */
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        scroll-snap-type: y proximity;
+        perspective: 2px;
+        background-color: rgb(245, 242, 239);
+      }
+
+      #about {
+        border-bottom: 1px solid grey;
+        text-align: center;
+        height: 120vh;
+      }
+
+      img {
+        height: 50vh;
+      }
+
+      .scroll_image {
+        margin-left: 450px;
+        width: 32.7vw;
+        overflow-x: scroll;
+      }
+
+      #history {
+        border-bottom: 1px solid grey;
+        text-align: center;
+      }
+
+      #footer p {
+        text-align: left;
+        padding: 5px;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -26,6 +84,48 @@
         </nav>
       </div>
     </header>
+
+    <div class="the_container">
+      <section id="about">
+        <div class="about_text">
+          <h2>About</h2>
+          <p>
+            The Flighcase Shop is created by, Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ex sequi commodi ea aliquam vero nemo non quisquam natus, perferendis consequatur
+            odio doloribus minima hic aperiam voluptates delectus, aut, a adipisci ad. Nobis error excepturi alias! Sit ea a officia laudantium, labore fuga, reprehenderit amet, accusantium veritatis
+            ducimus eveniet assumenda excepturi vel quasi debitis nostrum inventore! Ipsam, rerum suscipit doloremque autem repellendus odit labore cupiditate quis! Qui repellendus, debitis voluptas,
+            et deleniti fuga praesentium dolor iste unde ipsum dolorem commodi laboriosam eaque aperiam sapiente. Necessitatibus aspernatur ipsum suscipit, eaque dolore incidunt. Quasi tempore
+            voluptas magnam fugit repellendus illo. Quis, ipsum!
+          </p>
+        </div>
+        <div class="scroll_image">
+          <img src="images/scroll3.png" alt="two cases" />
+        </div>
+      </section>
+
+      <section id="history">
+        <h2>History</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo consectetur delectus ipsa autem quidem, maxime eaque accusamus tenetur at minima cumque. Quia vitae, deserunt numquam
+          tempora minus reprehenderit error illum aperiam voluptatem tempore recusandae sequi laudantium voluptatibus. Nulla doloremque quo ut reiciendis cum. Temporibus quae veritatis, aut
+          repellendus maxime dolor doloremque aliquam est amet quos, officia hic quia consequuntur expedita? Molestias, sequi alias ut accusamus vitae ad officia assumenda eligendi quaerat facere enim
+          delectus sit nisi est fuga soluta non earum reiciendis corporis ipsum eum totam voluptates saepe! Nemo distinctio temporibus optio! Aperiam adipisci quos maxime labore eligendi, fugiat quo.
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>You can contact us at: #0404040404040</p>
+      </section>
+    </div>
+
+    <footer>
+      <div id="footer">
+        <p>The Flightcase Shop</p>
+        <p>Contact:</p>
+        <p>+45 00 00 00 00</p>
+        <p>somethingwithcase@goodmail.com</p>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
