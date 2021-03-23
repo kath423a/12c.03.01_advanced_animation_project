@@ -51,7 +51,7 @@ async function startFetch() {
 function startManipulatingTheSvg() {
   //Add mouse events to relevant g-elements (g_interactive) with querySelectorAll foreach
   document.querySelectorAll(".g_to_interact").forEach((eachG) => {
-    console.log(eachG);
+    // console.log(eachG);
 
     eachG.addEventListener("click", the_click);
     eachG.addEventListener("mouseover", the_mouseover);
@@ -65,13 +65,12 @@ function startManipulatingTheSvg() {
 
 function the_click() {
   elementToPaint = this;
-  this.style.fill = "grey";
+  // this.style.fill = "grey";
 }
 
 function the_mouseover() {
-  console.log(this);
-
-  this.style.stroke = "blue";
+  // console.log(this);
+  // this.style.stroke = "blue";
 }
 
 function the_mouseout() {
@@ -99,83 +98,116 @@ const features = {
 function toggleOption(event) {
   const target = event.currentTarget;
   const feature = target.dataset.feature;
-  console.log("this is also working");
+  // console.log("this is also working");
 
-  // TODO: Toggle feature in "model"
-  features[feature] = !features[feature];
+  if (feature == "lock1" || feature == "lock2") {
+    if ((features.lock1 == false) & (features.lock2 == false)) {
+      console.log("lock chosen");
+      addfeature();
+    } else if (features.lock2 == true || features.lock1 == true) {
+      console.log("cant add more locks");
+      if (features.lock2 == true) {
+        features.lock2 = false;
+      } else if (features.lock1 == true) {
+        features.lock1 = false;
+      }
 
-  if (features[feature] === true) {
-    //Select target and add chosen class
-    target.classList.add("chosen");
+      target.classList.remove("chosen");
+      const theFeatureElement = document.querySelector(
+        `#selected [data-feature="${feature}"]`
+      );
 
-    //Remove the hide class
-    document
-      .querySelector(`[data-feature="${feature}"`)
-      .classList.remove("hide");
+      const end = theFeatureElement.getBoundingClientRect();
+      const start = target.getBoundingClientRect();
 
-    //Create new featureElement and add it to the list
-    const newfeatureElement = createFeatureElement(feature);
-    document.querySelector("#selected ul").appendChild(newfeatureElement);
-    // feature added
+      const diffx = start.x - end.x + "px";
+      const diffy = start.y - end.y + "px";
 
-    //FLIP
-    const start = target.getBoundingClientRect();
-    const end = newfeatureElement.getBoundingClientRect();
+      theFeatureElement.style.setProperty("--diffx", diffx);
+      theFeatureElement.style.setProperty("--diffy", diffy);
 
-    const diffx = start.x - end.x + "px";
-    const diffy = start.y - end.y + "px";
+      theFeatureElement.offsetHeight;
 
-    newfeatureElement.style.setProperty("--diffx", diffx);
-    newfeatureElement.style.setProperty("--diffy", diffy);
+      //Animation feature out
+      //Animation feature out
 
-    //Animation feature in
-    newfeatureElement.classList = "animate-feature-in";
-  } else {
-    target.classList.remove("chosen");
-    const theFeatureElement = document.querySelector(
-      `#selected [data-feature="${feature}"]`
-    );
+      theFeatureElement.classList = "animate-feature-out";
 
-    const end = theFeatureElement.getBoundingClientRect();
-    const start = target.getBoundingClientRect();
+      //when animation is complete, remove featureElement from the DOM
+      theFeatureElement.addEventListener("animationend", function () {
+        theFeatureElement.remove();
+        //Chose the feature element and hide it
+        document
+          .querySelector(`[data-feature=${feature}`)
+          .classList.add("hide");
+        console.log(`Feature ${feature} is turned off!`);
+      });
+    }
+  }
 
-    const diffx = start.x - end.x + "px";
-    const diffy = start.y - end.y + "px";
+  if (feature == "handle1" || feature == "handle2") {
+    console.log("handle chosen");
+    // addfeature();
+  }
 
-    theFeatureElement.style.setProperty("--diffx", diffx);
-    theFeatureElement.style.setProperty("--diffy", diffy);
+  function addfeature() {
+    // TODO: Toggle feature in "model"
+    features[feature] = !features[feature];
 
-    theFeatureElement.offsetHeight;
+    if (features[feature] === true) {
+      //Select target and add chosen class
+      target.classList.add("chosen");
+      //Remove the hide class
+      document
+        .querySelector(`[data-feature="${feature}"`)
+        .classList.remove("hide");
 
-    //Animation feature out
-    //Animation feature out
+      //Create new featureElement and add it to the list
+      const newfeatureElement = createFeatureElement(feature);
+      document.querySelector("#selected ul").appendChild(newfeatureElement);
+      // feature added
 
-    theFeatureElement.classList = "animate-feature-out";
+      //FLIP
+      const start = target.getBoundingClientRect();
+      const end = newfeatureElement.getBoundingClientRect();
 
-    //when animation is complete, remove featureElement from the DOM
-    theFeatureElement.addEventListener("animationend", function () {
-      theFeatureElement.remove();
-      //Chose the feature element and hide it
-      document.querySelector(`[data-feature=${feature}`).classList.add("hide");
-      console.log(`Feature ${feature} is turned off!`);
-    });
+      const diffx = start.x - end.x + "px";
+      const diffy = start.y - end.y + "px";
+
+      newfeatureElement.style.setProperty("--diffx", diffx);
+      newfeatureElement.style.setProperty("--diffy", diffy);
+
+      //Animation feature in
+      newfeatureElement.classList = "animate-feature-in";
+    }
   }
 }
 
 // Create featureElement to be appended to #selected ul - could have used a <template> instead
 function createFeatureElement(feature) {
-  //Create an li element and add feature img into it
-  const li = document.createElement("li");
-  li.dataset.feature = feature;
+  if (
+    (document
+      .querySelector("#selected")
+      .contains(document.querySelector('img[alt="Lock1"]')) ==
+      false) &
+    (document
+      .querySelector("#selected")
+      .contains(document.querySelector('img[alt="Lock2"]')) ==
+      false)
+  ) {
+    //Create an li element and add feature img into it
+    const li = document.createElement("li");
+    li.dataset.feature = feature;
 
-  const img = document.createElement("img");
-  img.src = `images/feature_${feature}.png`;
-  img.alt = capitalize(feature);
+    const img = document.createElement("img");
+    img.src = `images/feature_${feature}.png`;
+    img.alt = capitalize(feature);
 
-  //Add the li element
-  li.append(img);
+    //Add the li element
+    li.append(img);
 
-  return li;
+    return li;
+  }
 }
 
 function capitalize(text) {
