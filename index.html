@@ -9,15 +9,21 @@
   </head>
   <body>
     
+
 <section class="sec">
 <header>
-<a href="#"><img src="images/logo2.png" class="logo"></a>
-<ul>
+  <div id="menu_button">☰</div>
+<div class="right_container">
+<nav>
+<ul id="menu" class="hidden">
   <li><a href="index.html">Frontpage</a></li>
   <li><a href="configurator.html">Product</a></li>
   <li><a href="scrolling.html">About</a></li>
 </ul>
+</nav>
+</div>
 </header>
+
 <div class="content">
   <div class="textBox tilt-in-fwd-tr">
     <h2>Choose a Case<br><span>Configurate it</span></h2>
@@ -37,18 +43,44 @@
 </section>
   
 <script>
+
+  //Change img on click
+
   function imgSlider(changeImg){
     document.querySelector(".caseImg").src = changeImg;
   }
+
+  //Change color with different img
+
   function changeBackgroundColor(color){
     const sec = document.querySelector('.sec');
     sec.style.background = color;
   }
+
+//THE BURGERMENU CODE
+
+  
+document.querySelector("#menu_button").addEventListener("click", toggleMenu);
+  
+
+function toggleMenu() {
+  console.log("toggleMenu");
+
+  document.querySelector("#menu").classList.toggle("hidden");
+
+  let erskjult = document.querySelector("#menu").classList.contains("hidden");
+
+  if (erskjult == true) {
+    document.querySelector("#menu_button").textContent = "☰";
+  } else {
+    document.querySelector("#menu_button").textContent = "x";
+  }
+}
 </script>
 
 <!--
     <header>
-      <div id="menuknap">☰</div>
+     
       <div class="left_container">
         <section class="sec">
           <a href="#"><img src="images/logo2.png" class="logo"></a>
@@ -65,31 +97,6 @@
       </div>
     </div>
     </header>
-
-    
-    
- 
-    <style>
-
-    .logo{
-      width: 100px;
-      display:block;
-}
-
-    body{
-    background: #0062be;
-}
-
-    </style>
-
-
-
-    <section id="splash">
-      <div class="forside_billede" class="slide-in-left">
-        <h2>The economy case</h2>
-      </div>
-      <a href="#view" class="button">View product</a>
-    </section>
 
     <script src="script.js"></script>
     -->
