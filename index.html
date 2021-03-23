@@ -3,19 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="frontpage.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
     <title>Frontpage - Advanced Animation Project</title>
   </head>
   <body>
+    
+<section class="sec">
+<header>
+<a href="#"><img src="images/logo2.png" class="logo"></a>
+<ul>
+  <li><a href="index.html">Frontpage</a></li>
+  <li><a href="configurator.html">Product</a></li>
+  <li><a href="scrolling.html">About</a></li>
+</ul>
+</header>
+<div class="content">
+  <div class="textBox tilt-in-fwd-tr">
+    <h2>Choose a Case<br><span>Configurate it</span></h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem beatae excepturi nihil nemo minus expedita aspernatur blanditiis quis fuga architecto.</p>
+    <a href="configurator.html">View All Products</a>
+  </div>
+  <div class="imgBox">
+    <img src="images/case1.gif" class="caseImg slide-in-left">
+  </div>
+</div>
+<ul class="thumb">
+  <li><img src="images/case1.gif" onclick="imgSlider('images/case1.gif');changeBackgroundColor('#0062be')"></li>
+  <li><img src="images/case2.gif" onclick="imgSlider('images/case2.gif');changeBackgroundColor('#e60c2c')"></li>
+  <li><img src="images/case3.gif" onclick="imgSlider('images/case3.gif');changeBackgroundColor('#FFFF00')"></li>
+</ul>
+
+</section>
+  
+<script>
+  function imgSlider(changeImg){
+    document.querySelector(".caseImg").src = changeImg;
+  }
+  function changeBackgroundColor(color){
+    const sec = document.querySelector('.sec');
+    sec.style.background = color;
+  }
+</script>
+
+<!--
     <header>
       <div id="menuknap">☰</div>
       <div class="left_container">
-        <h1>
-          THE <br />
-          FLIGHTCASE <br />SHOP
-        </h1>
-      </div>
+        <section class="sec">
+          <a href="#"><img src="images/logo2.png" class="logo"></a>
+        </section>
+        
       <div class="right_container">
         <nav>
           <ul id="menu" class="hidden">
@@ -25,7 +63,26 @@
           </ul>
         </nav>
       </div>
+    </div>
     </header>
+
+    
+    
+ 
+    <style>
+
+    .logo{
+      width: 100px;
+      display:block;
+}
+
+    body{
+    background: #0062be;
+}
+
+    </style>
+
+
 
     <section id="splash">
       <div class="forside_billede" class="slide-in-left">
@@ -35,5 +92,6 @@
     </section>
 
     <script src="script.js"></script>
+    -->
   </body>
 </html>

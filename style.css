@@ -280,29 +280,3 @@ section {
 path {
   stroke-width: 2;
 }
-
-/***About***/
-
-.slide-in-left {
-  animation: slide-in-left 1s ease-out both;
-  width: 50vh;
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-h1 {
-  text-align: center;
-}
-
-#frontpage {
-  background-color: blue;
-}
