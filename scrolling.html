@@ -152,7 +152,8 @@
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.to("#about", {
-        yPercent: -50,
+        // yPercent: -50,
+        xPercent: 50,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
@@ -163,7 +164,8 @@
       });
 
       gsap.to("#image_scroll", {
-        yPercent: -50,
+        // yPercent: -50,
+        xPercent: 50,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
@@ -174,18 +176,8 @@
       });
 
       gsap.to("#history", {
-        yPercent: -50,
-        ease: "none",
-        scrollTrigger: {
-          //   trigger: ".pSection",
-          // start: "top bottom", // the default values
-          // end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to("#contact", {
-        yPercent: 100,
+        // yPercent: -50,
+        xPercent: -30,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
