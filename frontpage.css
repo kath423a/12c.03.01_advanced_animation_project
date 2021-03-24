@@ -5,11 +5,25 @@
   font-family: "poppins", sans-serif;
 }
 
+h1 {
+  font-family: "Orbitron", sans-serif;
+  color: #0d1930;
+  font-size: 2.5rem;
+  text-align: left;
+  letter-spacing: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+#header_frontpage {
+  background-color: #0062be;
+}
 .sec {
+  border-top: 4px solid white;
   position: relative;
-  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
-  padding: 100px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,41 +31,9 @@
   transition: 0.5s;
 }
 
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo {
-  position: relative;
-  max-width: 80px;
-}
-
-header ul {
-  position: relative;
-  display: flex;
-}
-
-header ul li {
-  list-style: none;
-}
-
-header ul li a {
-  display: inline-block;
-  color: #fff;
-  font-weight: 400;
-  margin-left: 40px;
-  text-decoration: none;
-}
-
 .content {
   position: relative;
+  margin-top: -250px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -157,97 +139,5 @@ header ul li a {
   100% {
     transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
     opacity: 1;
-  }
-}
-
-nav {
-  margin: 0;
-  overflow: hidden;
-  width: 100%;
-  z-index: 1;
-  position: sticky;
-  top: 0;
-}
-
-nav ul {
-  text-align: center;
-  padding: 0px;
-  z-index: 1;
-  position: relative;
-}
-
-nav li {
-  display: inline;
-  text-align: center;
-}
-
-li a {
-  display: block;
-  color: rgb(17, 16, 16);
-  padding: 14px 36px;
-  text-decoration: none;
-  font-family: "Lato", sans-serif;
-  font-size: 0.9rem;
-  letter-spacing: 0.11rem;
-  font-weight: 300;
-}
-
-li a:hover {
-  background-color: #c9c2bd;
-}
-
-.hidden {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-#menu_button {
-  display: inline-block;
-  position: fixed;
-  padding: 15px;
-  font-family: "Lato", sans-serif;
-  font-size: 2.2rem;
-  margin-top: -15px;
-  z-index: 1;
-  position: relative;
-}
-
-#menu {
-  list-style-type: none;
-  transition: transform 0.3s;
-  transform-origin: top left;
-}
-
-@media (min-width: 700px) {
-  #menu_button {
-    display: none;
-  }
-
-  .hidden {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  #menu li {
-    display: inline-block;
-  }
-
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    top: 0;
-    width: 100%;
-  }
-
-  .left-container {
-    background-color: #ffffff;
-    padding: 30px;
-    text-align: center;
-    margin-bottom: 0px;
-  }
-
-  header {
-    text-align: center;
   }
 }

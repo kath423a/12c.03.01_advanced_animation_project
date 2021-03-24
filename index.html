@@ -4,81 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="frontpage.css" />
+    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
     <title>Frontpage - Advanced Animation Project</title>
   </head>
   <body>
-    
+    <header id="header_frontpage">
+      <div id="menuknap">☰</div>
+      <div class="top-container">
+        <h1>
+          THE <br />
+          CONFIGURATOR <br />PAGE
+        </h1>
+      </div>
 
-<section class="sec">
-<header>
-  <div id="menu_button">☰</div>
-<div class="right_container">
-<nav>
-<ul id="menu" class="hidden">
-  <li><a href="index.html">Frontpage</a></li>
-  <li><a href="configurator.html">Product</a></li>
-  <li><a href="scrolling.html">About</a></li>
-</ul>
-</nav>
-</div>
-</header>
+      <nav>
+        <ul id="menu" class="hidden">
+          <li><a href="index.html">Frontpage</a></li>
+          <li><a href="configurator.html">Product</a></li>
+          <li><a href="scrolling.html">About</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<div class="content">
-  <div class="textBox tilt-in-fwd-tr">
-    <h2>Choose a Case<br><span>Configurate it</span></h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem beatae excepturi nihil nemo minus expedita aspernatur blanditiis quis fuga architecto.</p>
-    <a href="configurator.html">View All Products</a>
-  </div>
-  <div class="imgBox">
-    <img src="images/case1.gif" class="caseImg slide-in-left">
-  </div>
-</div>
-<ul class="thumb">
-  <li><img src="images/case1.gif" onclick="imgSlider('images/case1.gif');changeBackgroundColor('#0062be')"></li>
-  <li><img src="images/case2.gif" onclick="imgSlider('images/case2.gif');changeBackgroundColor('#e60c2c')"></li>
-  <li><img src="images/case3.gif" onclick="imgSlider('images/case3.gif');changeBackgroundColor('#FFFF00')"></li>
-</ul>
+    <section class="sec">
+      <div class="content">
+        <div class="textBox tilt-in-fwd-tr">
+          <h2>Choose a Case<br /><span>Configurate it</span></h2>
+          <p>Personalize your flightcase with your favourite colors and preferable handles and locks to make your case even smarter!</p>
+          <a href="configurator.html">View Product</a>
+        </div>
+        <div class="imgBox">
+          <img src="images/case1.gif" class="caseImg slide-in-left" />
+        </div>
+      </div>
+      <ul class="thumb">
+        <li><img src="images/case1.gif" onclick="imgSlider('images/case1.gif');changeBackgroundColor('#0062be')" /></li>
+        <li><img src="images/case2.gif" onclick="imgSlider('images/case2.gif');changeBackgroundColor('#e60c2c')" /></li>
+        <li><img src="images/case3.gif" onclick="imgSlider('images/case3.gif');changeBackgroundColor('#FFFF00')" /></li>
+      </ul>
+    </section>
 
-</section>
-  
-<script>
+    <script>
+      //Change img on click
 
-  //Change img on click
+      function imgSlider(changeImg) {
+        document.querySelector(".caseImg").src = changeImg;
+      }
 
-  function imgSlider(changeImg){
-    document.querySelector(".caseImg").src = changeImg;
-  }
+      //Change color with different img
 
-  //Change color with different img
+      function changeBackgroundColor(color) {
+        const sec = document.querySelector(".sec");
+        const sec1 = document.querySelector("#header_frontpage");
+        sec.style.background = color;
+        sec1.style.background = color;
+      }
 
-  function changeBackgroundColor(color){
-    const sec = document.querySelector('.sec');
-    sec.style.background = color;
-  }
+      //THE BURGERMENU CODE
 
-//THE BURGERMENU CODE
+      document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
-  
-document.querySelector("#menu_button").addEventListener("click", toggleMenu);
-  
+      function toggleMenu() {
+        console.log("toggleMenu");
 
-function toggleMenu() {
-  console.log("toggleMenu");
+        document.querySelector("#menu").classList.toggle("hidden");
 
-  document.querySelector("#menu").classList.toggle("hidden");
+        let erskjult = document.querySelector("#menu").classList.contains("hidden");
 
-  let erskjult = document.querySelector("#menu").classList.contains("hidden");
+        if (erskjult == true) {
+          document.querySelector("#menu_button").textContent = "☰";
+        } else {
+          document.querySelector("#menu_button").textContent = "x";
+        }
+      }
+    </script>
 
-  if (erskjult == true) {
-    document.querySelector("#menu_button").textContent = "☰";
-  } else {
-    document.querySelector("#menu_button").textContent = "x";
-  }
-}
-</script>
-
-<!--
+    <!--
     <header>
      
       <div class="left_container">

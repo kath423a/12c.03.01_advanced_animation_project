@@ -82,21 +82,20 @@
   <body>
     <header>
       <div id="menuknap">☰</div>
-      <div class="left_container">
+      <div class="top-container">
         <h1>
           THE <br />
-          FLIGHTCASE <br />SHOP
+          CONFIGURATOR <br />PAGE
         </h1>
       </div>
-      <div class="right_container">
-        <nav>
-          <ul id="menu" class="hidden">
-            <li><a href="index.html">Frontpage</a></li>
-            <li><a href="configurator.html">Product</a></li>
-            <li><a href="scrolling.html">About</a></li>
-          </ul>
-        </nav>
-      </div>
+
+      <nav>
+        <ul id="menu" class="hidden">
+          <li><a href="index.html">Frontpage</a></li>
+          <li><a href="configurator.html">Product</a></li>
+          <li><a href="scrolling.html">About</a></li>
+        </ul>
+      </nav>
     </header>
 
     <div class="the_container">
@@ -134,11 +133,6 @@
           reiciendis corporis ipsum eum totam voluptates saepe! Nemo distinctio temporibus optio! Aperiam adipisci quos maxime labore eligendi, fugiat quo.
         </p>
       </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>You can contact us at: #0404040404040</p>
-      </section>
     </div>
 
     <footer>
@@ -158,7 +152,7 @@
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.to("#about", {
-        yPercent: 100,
+        yPercent: -50,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
@@ -169,7 +163,7 @@
       });
 
       gsap.to("#image_scroll", {
-        yPercent: 100,
+        yPercent: -50,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
@@ -180,7 +174,7 @@
       });
 
       gsap.to("#history", {
-        yPercent: 100,
+        yPercent: -50,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
