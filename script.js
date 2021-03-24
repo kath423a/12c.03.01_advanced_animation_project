@@ -70,7 +70,7 @@ function the_click() {
 
 function the_mouseover() {
   // console.log(this);
-  // this.style.stroke = "blue";
+  this.style.stroke = "blue";
 }
 
 function the_mouseout() {
@@ -106,42 +106,44 @@ function toggleOption(event) {
       addfeature();
     } else if (features.lock2 == true || features.lock1 == true) {
       console.log("cant add more locks");
-      if (features.lock2 == true) {
-        features.lock2 = false;
-      } else if (features.lock1 == true) {
-        features.lock1 = false;
-      }
 
       target.classList.remove("chosen");
       const theFeatureElement = document.querySelector(
         `#selected [data-feature="${feature}"]`
       );
+      console.log(theFeatureElement);
 
-      const end = theFeatureElement.getBoundingClientRect();
-      const start = target.getBoundingClientRect();
+      if (theFeatureElement != null) {
+        const end = theFeatureElement.getBoundingClientRect();
+        const start = target.getBoundingClientRect();
 
-      const diffx = start.x - end.x + "px";
-      const diffy = start.y - end.y + "px";
+        const diffx = start.x - end.x + "px";
+        const diffy = start.y - end.y + "px";
 
-      theFeatureElement.style.setProperty("--diffx", diffx);
-      theFeatureElement.style.setProperty("--diffy", diffy);
+        theFeatureElement.style.setProperty("--diffx", diffx);
+        theFeatureElement.style.setProperty("--diffy", diffy);
 
-      theFeatureElement.offsetHeight;
+        theFeatureElement.offsetHeight;
+        //Animation feature out
 
-      //Animation feature out
-      //Animation feature out
+        theFeatureElement.classList = "animate-feature-out";
 
-      theFeatureElement.classList = "animate-feature-out";
+        //when animation is complete, remove featureElement from the DOM
+        theFeatureElement.addEventListener("animationend", function () {
+          theFeatureElement.remove();
+          //Chose the feature element and hide it
+          document
+            .querySelector(`[data-feature=${feature}`)
+            .classList.add("hide");
+          console.log(`Feature ${feature} is turned off!`);
+        });
 
-      //when animation is complete, remove featureElement from the DOM
-      theFeatureElement.addEventListener("animationend", function () {
-        theFeatureElement.remove();
-        //Chose the feature element and hide it
-        document
-          .querySelector(`[data-feature=${feature}`)
-          .classList.add("hide");
-        console.log(`Feature ${feature} is turned off!`);
-      });
+        if (features.lock2 == true) {
+          features.lock2 = false;
+        } else if (features.lock1 == true) {
+          features.lock1 = false;
+        }
+      }
     }
   }
 
@@ -157,6 +159,7 @@ function toggleOption(event) {
     if (features[feature] === true) {
       //Select target and add chosen class
       target.classList.add("chosen");
+
       //Remove the hide class
       document
         .querySelector(`[data-feature="${feature}"`)
@@ -164,21 +167,24 @@ function toggleOption(event) {
 
       //Create new featureElement and add it to the list
       const newfeatureElement = createFeatureElement(feature);
-      document.querySelector("#selected ul").appendChild(newfeatureElement);
-      // feature added
+      if (newfeatureElement != undefined) {
+        console.log(newfeatureElement);
+        document.querySelector("#selected ul").appendChild(newfeatureElement);
+        // feature added
 
-      //FLIP
-      const start = target.getBoundingClientRect();
-      const end = newfeatureElement.getBoundingClientRect();
+        //FLIP
+        const start = target.getBoundingClientRect();
+        const end = newfeatureElement.getBoundingClientRect();
 
-      const diffx = start.x - end.x + "px";
-      const diffy = start.y - end.y + "px";
+        const diffx = start.x - end.x + "px";
+        const diffy = start.y - end.y + "px";
 
-      newfeatureElement.style.setProperty("--diffx", diffx);
-      newfeatureElement.style.setProperty("--diffy", diffy);
+        newfeatureElement.style.setProperty("--diffx", diffx);
+        newfeatureElement.style.setProperty("--diffy", diffy);
 
-      //Animation feature in
-      newfeatureElement.classList = "animate-feature-in";
+        //Animation feature in
+        newfeatureElement.classList = "animate-feature-in";
+      }
     }
   }
 }
