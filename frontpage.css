@@ -5,6 +5,10 @@
   font-family: "poppins", sans-serif;
 }
 
+body {
+  background-color: rgb(186, 189, 229);
+}
+
 h1 {
   font-family: "Orbitron", sans-serif;
   color: #0d1930;
@@ -15,25 +19,22 @@ h1 {
   font-weight: 300;
 }
 
-#header_frontpage {
-  background-color: #0062be;
-}
 .sec {
   border-top: 4px solid white;
   position: relative;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0062be;
+  background-color: BAC0E6;
   transition: 0.5s;
 }
 
 .content {
   position: relative;
-  margin-top: -250px;
+
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -51,6 +52,7 @@ h1 {
   line-height: 1.5em;
   font-weight: 900;
   text-transform: uppercase;
+  margin-left: 50px;
 }
 
 .content .textBox h2 span {
@@ -59,6 +61,7 @@ h1 {
 
 .content .textBox p {
   color: #fff;
+  margin-left: 50px;
 }
 
 .content .textBox a {
@@ -72,6 +75,7 @@ h1 {
   letter-spacing: 1px;
   text-decoration: none;
   text-transform: uppercase;
+  margin-left: 50px;
 }
 
 .content .imgBox {
@@ -82,16 +86,22 @@ h1 {
   justify-content: flex-end;
 }
 
-.content .imgBox img {
-  max-width: 260px;
-}
-
 .thumb {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: -156px;
   transform: translate(-50%);
   display: flex;
+}
+
+.thumb li img {
+  width: 400px;
+  height: auto;
+}
+
+.imgBox img {
+  width: 400px;
+  height: auto;
 }
 
 .thumb li {
@@ -100,6 +110,8 @@ h1 {
   margin: 0 20px;
   cursor: pointer;
   transition: 0.5s;
+  height: 235px;
+  width: 50px;
 }
 
 .thumb li:hover {
@@ -107,7 +119,8 @@ h1 {
 }
 
 .thumb li img {
-  max-width: 60px;
+  max-width: 80px;
+  height: 100px;
 }
 
 .slide-in-left {
@@ -139,5 +152,44 @@ h1 {
   100% {
     transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .content .textbox h2 {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    top: 10%;
+  }
+
+  .top-container h1 {
+    font-size: 2em;
+  }
+
+  .thumb {
+    flex-grow: 2;
+    bottom: -240px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .thumb li {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+  }
+
+  .top-container h1 {
+    font-size: 1.5em;
   }
 }
