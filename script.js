@@ -42,7 +42,7 @@ function toggleMenu() {
 let elementToPaint;
 
 async function startFetch() {
-  let response = await fetch("/images/case_conf2-01.svg");
+  let response = await fetch("images/case_conf2-01.svg");
   let mySvgData = await response.text();
   document.querySelector("#defaultcase").innerHTML = mySvgData;
 
@@ -79,9 +79,11 @@ function the_mouseout() {
 }
 
 function colorClick() {
-  console.log("CLICK", this.getAttribute("fill"));
+  console.log("CLICK", this.style.backgroundColor);
   if (elementToPaint != undefined) {
-    elementToPaint.style.fill = this.getAttribute("fill");
+    console.log("CLICK", this.style.backgroundColor);
+
+    elementToPaint.style.fill = this.style.backgroundColor;
   }
 }
 

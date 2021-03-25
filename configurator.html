@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="configurator.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
     <title>Product - Advanced Animation Project</title>
   </head>
@@ -52,7 +53,7 @@
       </div>
 
       <div id="options">
-        Available features
+         <h2> Available features</h2>
         <h2>Handles</h2>
         <figure class="option" data-feature="handle1">
           <img src="images/feature_handle1.png" alt="Handle" />
@@ -71,15 +72,31 @@
           <img src="images/feature_lock2.png" alt="Lock" />
           <figcaption>Lock 2</figcaption>
         </figure>
-      </div>
+<h2>Available colors</h1> 
+  Choose either sides or top, then choose the color
+<div class="colors">
+          <div class="square color_btn" style="background-color:#858C80;"> </div>
+          <div class="square color_btn" style="background-color:#EAF2E4;"> </div>
+          <div class="square color_btn" style="background-color:#182612;"> </div>
+          <div class="square color_btn" style="background-color:#BAC0E6;"> </div>
+          <div class="break"></div> <!-- break -->
+          <div class="square color_btn" style="background-color:#597346;"> </div>
+          <div class="square color_btn" style="background-color:#ACA6F0;"> </div>
+          <div class="square color_btn" style="background-color:#3B5FA8;"> </div>
+          <div class="square color_btn" style="background-color:#001175;"> </div>
+
+          <div> </div>
+
+        </div>
+      </div>    </div>
       <div id="selected">
-        Selected features
+      <h2> Selected features</h2> 
         <ul>
           <!-- featureElements are added here! -->
         </ul>
       </div>
-    </div>
 
+<!-- 
     <svg viewBox="0 0 842 200">
       <rect class="color_btn" width="90" height="80" fill="#EAF2E4"></rect>
       <rect class="color_btn" x="100" width="90" height="80" fill="#858C80"></rect>
@@ -89,7 +106,7 @@
       <rect class="color_btn" x="500" width="90" height="80" fill="#ACA6F0"></rect>
       <rect class="color_btn" x="600" width="90" height="80" fill="#3B5FA8"></rect>
       <rect class="color_btn" x="700" width="90" height="80" fill="#001175"></rect>
-    </svg>
+    </svg> -->
 
     <script src="script.js"></script>
   </body>
