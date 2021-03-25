@@ -17,20 +17,26 @@
       h2 {
         padding-top: 20px;
         color: white;
+        font-family: "poppins", sans-serif;
+        font-size: 3em;
+        line-height: 1.5em;
+        font-weight: 900;
       }
 
       p {
         line-height: 30px;
         color: white;
+        font-family: "poppins", sans-serif;
       }
 
       li {
         line-height: 30px;
         color: white;
+        font-family: "poppins", sans-serif;
       }
 
       section {
-        height: 50vh;
+        height: 60vh;
         max-width: 100%;
       }
 
@@ -47,26 +53,37 @@
         padding-left: 20px;
       }
 
-      img {
-        height: 40vh;
+      /* img {
+        height: 70vh;
+      }
+
+      #image_scroll {
+        height: 50vh;
+        border-bottom: 4px solid white;
       }
 
       .scroll_image {
-        border-top: 4px solid white;
-        margin-left: 350px;
-        width: 26.5vw;
+        width: 26vw;
         overflow-x: scroll;
+      } */
+
+      #image_scroll a {
+        display: inline-block;
+        padding: 20px 40px;
+        background: #fff;
+        color: #111;
+        border-radius: 100px;
+        font-weight: 10px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin-top: 20px;
+        margin-left: 200px;
       }
 
       #history {
         border-top: 4px solid white;
-        /* padding-top: 300px; */
-        padding-left: 600px;
-        margin-right: 100px;
-      }
-
-      #contact {
-        border-top: 4px solid white;
+        border-bottom: 4px solid white;
       }
 
       footer {
@@ -103,7 +120,7 @@
     <div class="the_container">
       <section id="about">
         <div class="about_text">
-          <h2>About</h2>
+          <h2>ABOUT</h2>
           <p>
             Our flightcase is designed to be the perfect flightcase for your specific needs. <br />
             Product Details:
@@ -118,25 +135,32 @@
         </div>
       </section>
 
-      <section id="image_scroll">
-        <div class="scroll_image">
-          <img src="images/scroll3.png" alt="two cases" />
-          <p>Scroll for example of personal look</p>
-        </div>
-      </section>
-
       <section id="history">
-        <h2>History</h2>
-        <p>
-          The Flighcase Shop is created with the purpose of fullfilling your needs for the perfect flightcase. The case is created as a configurator to give the customer the freedom to design it with
-          personal colors and preferable locks and handles ipsa autem quidem, maxime eaque accusamus tenetur at minima cumque. Quia vitae, deserunt numquam tempora minus reprehenderit error illum
-          aperiam voluptatem tempore recusandae sequi laudantium voluptatibus. Nulla doloremque quo ut reiciendis cum. Temporibus quae veritatis, aut repellendus maxime dolor doloremque aliquam est
-          amet quos, officia hic quia consequuntur expedita? Molestias, sequi alias ut accusamus vitae ad officia assumenda eligendi quaerat facere enim delectus sit nisi est fuga soluta non earum
-          reiciendis corporis ipsum eum totam voluptates saepe! Nemo distinctio temporibus optio! Aperiam adipisci quos maxime labore eligendi, fugiat quo.
-        </p>
+        <div class="history_inner">
+          <h2>HISTORY</h2>
+          <p>
+            The Flightcase Shop is created with the purpose of fullfilling your needs for the perfect flightcase. The case is created as a configurator to give the customer the freedom to design it
+            with personal colors and preferable locks and handles. The Flightcase Shop was founded in march 2021 as a schoolproject at Københavns Erhvervsakademi, but that doesn't mean that our
+            webshop and product isn't created fully by love and passion. It's has always been our dream to walk into the flightcase industry with new and more modern designs and we are very exited
+            that we finally were able to pursue our big dream. It has been a long ride, but we are happy to be here! <br />
+            Love from your founders: Mateusz, Simone and Kathrine
+          </p>
+        </div>
       </section>
     </div>
 
+    <section id="image_scroll">
+      <div class="image_inner">
+        <h2>DESIGN YOUR FLIGHTCASE</h2>
+        <a href="configurator.html">Try it!</a>
+        <!-- <p>Scroll for example of personal look</p>
+        <div class="scroll_image">
+          <img src="images/scroll4.png" alt="two cases" />
+        </div> -->
+      </div>
+    </section>
+
+    <!-- 
     <footer>
       <div id="footer">
         <p>The Flightcase Shop</p>
@@ -144,7 +168,7 @@
         <p>+45 00 00 00 00</p>
         <p>somethingwithcase@goodmail.com</p>
       </div>
-    </footer>
+    </footer> -->
 
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
@@ -154,7 +178,6 @@
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.to("#about", {
-        // yPercent: -50,
         xPercent: 50,
         ease: "none",
         scrollTrigger: {
@@ -165,9 +188,9 @@
         },
       });
 
-      gsap.to("#image_scroll", {
+      gsap.to(".history_inner", {
         // yPercent: -50,
-        xPercent: 50,
+        xPercent: -40,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
@@ -177,9 +200,8 @@
         },
       });
 
-      gsap.to("#history", {
-        // yPercent: -50,
-        xPercent: -30,
+      gsap.to(".image_inner", {
+        xPercent: 25,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
