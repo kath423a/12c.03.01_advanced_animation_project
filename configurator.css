@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #0062be;
+  background-color: rgb(186, 189, 229);
 }
 #configurator {
   display: flex;
@@ -13,7 +13,6 @@ body {
 }
 
 #product-preview {
-  width: 100vw;
   box-shadow: 3px 3px 8px #ddd;
   border-radius: 1em;
   position: relative;
@@ -199,11 +198,11 @@ path {
   #configurator {
     display: flex;
     flex-direction: column;
+    justify-content: center;
   }
 
   #product-preview,
   #options {
-    width: 90vw;
     box-shadow: 3px 3px 8px #ddd;
     border-radius: 1em;
     position: relative;
@@ -212,5 +211,11 @@ path {
 
   nav {
     display: none;
+  }
+}
+@media (min-width: 700px) {
+  #product-preview {
+    width: 100vw;
+    height: max-content;
   }
 }
