@@ -86,8 +86,7 @@ section {
   margin-top: 20px;
 }
 
-.design_inner,
-h2,
+.design_inner h2,
 .button_tryit {
   text-align: center;
 }

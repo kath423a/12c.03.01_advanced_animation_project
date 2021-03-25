@@ -12,6 +12,10 @@ body {
   flex-direction: row;
 }
 
+.top-container h1 {
+  text-align: center;
+}
+
 #product-preview {
   box-shadow: 3px 3px 8px #ddd;
   border-radius: 1em;
