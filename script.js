@@ -30,10 +30,22 @@ function toggleMenu() {
 
   if (erskjult == true) {
     document.querySelector("#menuknap").textContent = "☰";
+    document.querySelector("body > nav").style.display = "none";
   } else {
     document.querySelector("#menuknap").textContent = "x";
+    document.querySelector("body > nav").style.display = "block ";
   }
 }
+function checksize() {
+  if (window.innerWidth > 700) {
+    document.querySelector("body > nav").style.display = "block ";
+  }
+  if (window.innerWidth < 700) {
+    document.querySelector("body > nav").style.display = "none ";
+  }
+}
+
+window.onresize = checksize;
 
 //
 //
