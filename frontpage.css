@@ -9,6 +9,10 @@ body {
   background-color: rgb(186, 189, 229);
 }
 
+.top-container h1 {
+  text-align: center;
+}
+
 h1 {
   font-family: "Orbitron", sans-serif;
   color: #0d1930;
@@ -17,6 +21,7 @@ h1 {
   letter-spacing: 0.8rem;
   text-transform: uppercase;
   font-weight: 300;
+  text-align: center;
 }
 
 .sec {

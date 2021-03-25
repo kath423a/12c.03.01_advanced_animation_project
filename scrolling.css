@@ -38,6 +38,7 @@ section {
   scroll-behavior: smooth;
   scroll-snap-type: y proximity;
   perspective: 2px;
+  overflow: hidden;
 }
 
 #about {
@@ -46,7 +47,30 @@ section {
 
 .history_inner {
   padding-left: 20px;
-  margin-right: 800px;
+  border-top: 4px solid white;
+}
+
+.roll-in-left {
+  animation: roll-in-left 0.6s ease-out both;
+}
+
+@keyframes roll-in-left {
+  0% {
+    transform: translateX(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+#history {
+  margin-bottom: 60px;
+}
+
+#customer_says {
+  margin-bottom: 210px;
 }
 
 #design_it a {
@@ -60,11 +84,12 @@ section {
   text-decoration: none;
   text-transform: uppercase;
   margin-top: 20px;
-  margin-left: 200px;
 }
 
-.design_inner {
-  margin-left: 400px;
+.design_inner,
+h2,
+.button_tryit {
+  text-align: center;
 }
 
 #customer_says {
@@ -74,6 +99,7 @@ section {
 
 #customer_says .sectionwrapper {
   display: flex;
+  border-top: 4px solid white;
 }
 
 #customer_says .coulmn {
@@ -89,7 +115,7 @@ section {
 
 /* MEDIA QUARIES */
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   section {
     height: 60vh;
     max-width: 100%;
@@ -102,6 +128,7 @@ section {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
     perspective: 2px;
+    overflow: hidden;
   }
 
   #about {
@@ -110,6 +137,7 @@ section {
 
   .history_inner {
     padding-left: 5px;
+    margin-bottom: 20px;
   }
 
   #design_it a {
@@ -126,12 +154,19 @@ section {
     margin-left: 200px;
   }
 
-  .design_inner {
-    margin-left: 400px;
+  #design_it .design_inner {
+    float: left;
+    margin-left: 50px;
   }
 
   #customer_says {
     padding-left: 5px;
+    margin-top: 275px;
+    margin-bottom: 400px;
+  }
+
+  #customer_says h2 {
+    font-size: 2rem;
   }
 
   #customer_says .sectionwrapper {
@@ -148,4 +183,15 @@ section {
   #customer_says img {
     width: 200px;
   }
+
+  p {
+    font-size: 1em;
+  }
+  .button_tryit {
+    text-align: center;
+  }
+}
+
+.top-container h1 {
+  text-align: center;
 }
