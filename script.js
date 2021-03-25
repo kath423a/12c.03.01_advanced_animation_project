@@ -127,7 +127,6 @@ function toggleOption(event) {
     if ((feature == "handle2") & (features.handle2 == true)) {
       features.handle2 = false;
     }
-
     if ((feature == "lock1") & (features.lock1 == true)) {
       features.lock1 = false;
     }
@@ -139,7 +138,7 @@ function toggleOption(event) {
     const theFeatureElement = document.querySelector(
       `#selected [data-feature="${feature}"]`
     );
-    // console.log(theFeatureElement);
+    console.log(theFeatureElement);
 
     if (theFeatureElement != null) {
       const end = theFeatureElement.getBoundingClientRect();

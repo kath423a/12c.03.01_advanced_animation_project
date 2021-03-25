@@ -179,8 +179,7 @@ li a:hover {
   top: 0vh;
   left: 0vw;
   width: 40%;
-
-  transform: translate(80%, 100%);
+  transform: translate(100%, 100%);
 }
 
 #product-preview .hide {
