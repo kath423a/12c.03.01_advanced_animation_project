@@ -9,7 +9,10 @@ function start() {
   document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
   // register toggle-clicks
-  document.querySelectorAll(".option").forEach((option) => option.addEventListener("click", toggleOption));
+
+  document
+    .querySelectorAll(".option")
+    .forEach((option) => option.addEventListener("click", toggleOption));
 
   startFetch();
 }
@@ -27,10 +30,22 @@ function toggleMenu() {
 
   if (erskjult == true) {
     document.querySelector("#menuknap").textContent = "☰";
+    document.querySelector("body > nav").style.display = "none";
   } else {
     document.querySelector("#menuknap").textContent = "x";
+    document.querySelector("body > nav").style.display = "block ";
   }
 }
+function checksize() {
+  if (window.innerWidth > 700) {
+    document.querySelector("body > nav").style.display = "block ";
+  }
+  if (window.innerWidth < 700) {
+    document.querySelector("body > nav").style.display = "none ";
+  }
+}
+
+window.onresize = checksize;
 
 //
 //
@@ -39,9 +54,9 @@ function toggleMenu() {
 let elementToPaint;
 
 async function startFetch() {
-  let response = await fetch("/images/case_conf2-01.svg");
+  let response = await fetch("images/case_conf2-01.svg");
   let mySvgData = await response.text();
-  document.querySelector("#product-preview").innerHTML = mySvgData;
+  document.querySelector("#defaultcase").innerHTML = mySvgData;
 
   startManipulatingTheSvg();
 }
@@ -49,7 +64,7 @@ async function startFetch() {
 function startManipulatingTheSvg() {
   //Add mouse events to relevant g-elements (g_interactive) with querySelectorAll foreach
   document.querySelectorAll(".g_to_interact").forEach((eachG) => {
-    console.log(eachG);
+    // console.log(eachG);
 
     eachG.addEventListener("click", the_click);
     eachG.addEventListener("mouseover", the_mouseover);
@@ -63,12 +78,11 @@ function startManipulatingTheSvg() {
 
 function the_click() {
   elementToPaint = this;
-  this.style.fill = "grey";
+  // this.style.fill = "grey";
 }
 
 function the_mouseover() {
-  console.log(this);
-
+  // console.log(this);
   this.style.stroke = "blue";
 }
 
@@ -77,9 +91,11 @@ function the_mouseout() {
 }
 
 function colorClick() {
-  console.log("CLICK", this.getAttribute("fill"));
+  console.log("CLICK", this.style.backgroundColor);
   if (elementToPaint != undefined) {
-    elementToPaint.style.fill = this.getAttribute("fill");
+    console.log("CLICK", this.style.backgroundColor);
+
+    elementToPaint.style.fill = this.style.backgroundColor;
   }
 }
 
@@ -97,77 +113,163 @@ const features = {
 function toggleOption(event) {
   const target = event.currentTarget;
   const feature = target.dataset.feature;
-  console.log("this is also working");
+  // console.log("this is also working");
 
-  // TODO: Toggle feature in "model"
-  features[feature] = !features[feature];
+  if (feature == "lock1" || feature == "lock2") {
+    if ((features.lock1 == false) & (features.lock2 == false)) {
+      console.log("lock chosen");
+      addFeature();
+    } else if (features.lock2 == true || features.lock1 == true) {
+      console.log("cant add more locks");
+      removeFeature();
+    }
+  }
 
-  if (features[feature] === true) {
-    //Select target and add chosen class
-    target.classList.add("chosen");
+  if (feature == "handle1" || feature == "handle2") {
+    if ((features.handle1 == false) & (features.handle2 == false)) {
+      console.log("handle chosen");
+      addFeature();
+    } else if (features.handle1 == true || features.handle2 == true) {
+      console.log("cant add more handles");
+      removeFeature();
+    }
+  }
+  function removeFeature() {
+    if ((feature == "handle1") & (features.handle1 == true)) {
+      features.handle1 = false;
+    }
+    if ((feature == "handle2") & (features.handle2 == true)) {
+      features.handle2 = false;
+    }
+    if ((feature == "lock1") & (features.lock1 == true)) {
+      features.lock1 = false;
+    }
+    if ((feature == "lock2") & (features.lock2 == true)) {
+      features.lock2 = false;
+    }
 
-    //Remove the hide class
-    document.querySelector(`[data-feature="${feature}"`).classList.remove("hide");
-
-    //Create new featureElement and add it to the list
-    const newfeatureElement = createFeatureElement(feature);
-    document.querySelector("#selected ul").appendChild(newfeatureElement);
-    // feature added
-
-    //FLIP
-    const start = target.getBoundingClientRect();
-    const end = newfeatureElement.getBoundingClientRect();
-
-    const diffx = start.x - end.x + "px";
-    const diffy = start.y - end.y + "px";
-
-    newfeatureElement.style.setProperty("--diffx", diffx);
-    newfeatureElement.style.setProperty("--diffy", diffy);
-
-    //Animation feature in
-    newfeatureElement.classList = "animate-feature-in";
-  } else {
     target.classList.remove("chosen");
-    const theFeatureElement = document.querySelector(`#selected [data-feature="${feature}"]`);
+    const theFeatureElement = document.querySelector(
+      `#selected [data-feature="${feature}"]`
+    );
+    console.log(theFeatureElement);
 
-    const end = theFeatureElement.getBoundingClientRect();
-    const start = target.getBoundingClientRect();
+    if (theFeatureElement != null) {
+      const end = theFeatureElement.getBoundingClientRect();
+      const start = target.getBoundingClientRect();
 
-    const diffx = start.x - end.x + "px";
-    const diffy = start.y - end.y + "px";
+      const diffx = start.x - end.x + "px";
+      const diffy = start.y - end.y + "px";
 
-    theFeatureElement.style.setProperty("--diffx", diffx);
-    theFeatureElement.style.setProperty("--diffy", diffy);
+      theFeatureElement.style.setProperty("--diffx", diffx);
+      theFeatureElement.style.setProperty("--diffy", diffy);
 
-    theFeatureElement.offsetHeight;
+      theFeatureElement.offsetHeight;
+      //Animation feature out
 
-    //Animation feature out
-    theFeatureElement.classList = "animate-feature-out";
+      theFeatureElement.classList = "animate-feature-out";
 
-    //when animation is complete, remove featureElement from the DOM
-    theFeatureElement.addEventListener("animationend", function () {
-      theFeatureElement.remove();
-      //Chose the feature element and hide it
-      document.querySelector(`[data-feature=${feature}`).classList.add("hide");
-      console.log(`Feature ${feature} is turned off!`);
-    });
+      //when animation is complete, remove featureElement from the DOM
+      theFeatureElement.addEventListener("animationstart", function () {
+        theFeatureElement.remove();
+        //Chose the feature element and hide it
+        document
+          .querySelector(`[data-feature=${feature}`)
+          .classList.add("hide");
+        console.log(`Feature ${feature} is turned off!`);
+      });
+    }
+  }
+
+  function addFeature() {
+    // TODO: Toggle feature in "model"
+    features[feature] = !features[feature];
+
+    if (features[feature] === true) {
+      //Select target and add chosen class
+      target.classList.add("chosen");
+
+      //Remove the hide class
+      document
+        .querySelector(`[data-feature="${feature}"`)
+        .classList.remove("hide");
+
+      const newfeatureElement = createLockImage(feature);
+
+      //Create new featureElement and add it to the list
+      if (newfeatureElement != undefined) {
+        console.log(newfeatureElement);
+        document.querySelector("#selected ul").appendChild(newfeatureElement);
+        // feature added
+
+        //FLIP
+        const start = target.getBoundingClientRect();
+        const end = newfeatureElement.getBoundingClientRect();
+
+        const diffx = start.x - end.x + "px";
+        const diffy = start.y - end.y + "px";
+
+        newfeatureElement.style.setProperty("--diffx", diffx);
+        newfeatureElement.style.setProperty("--diffy", diffy);
+
+        //Animation feature in
+        newfeatureElement.classList = "animate-feature-in";
+      }
+    }
   }
 }
 
 // Create featureElement to be appended to #selected ul - could have used a <template> instead
-function createFeatureElement(feature) {
-  //Create an li element and add feature img into it
-  const li = document.createElement("li");
-  li.dataset.feature = feature;
+function createLockImage(feature) {
+  if (
+    (document
+      .querySelector("#selected")
+      .contains(document.querySelector('img[alt="Lock1"]')) ==
+      false) &
+    (document
+      .querySelector("#selected")
+      .contains(document.querySelector('img[alt="Lock2"]')) ==
+      false)
+  ) {
+    //Create an li element and add feature img into it
+    const li = document.createElement("li");
+    li.dataset.feature = feature;
 
-  const img = document.createElement("img");
-  img.src = `images/feature_${feature}.png`;
-  img.alt = capitalize(feature);
+    const img = document.createElement("img");
+    img.src = `images/feature_${feature}.png`;
+    img.alt = capitalize(feature);
 
-  //Add the li element
-  li.append(img);
+    //Add the li element
+    li.append(img);
 
-  return li;
+    return li;
+  }
+}
+
+function createHandleImage(feature) {
+  if (
+    (document
+      .querySelector("#selected")
+      .contains(document.querySelector('img[alt="Handle1"]')) ==
+      false) &
+    (document
+      .querySelector("#selected")
+      .contains(document.querySelector('img[alt="Handle2"]')) ==
+      false)
+  ) {
+    //Create an li element and add feature img into it
+    const li = document.createElement("li");
+    li.dataset.feature = feature;
+
+    const img = document.createElement("img");
+    img.src = `images/feature_${feature}.png`;
+    img.alt = capitalize(feature);
+
+    //Add the li element
+    li.append(img);
+
+    return li;
+  }
 }
 
 function capitalize(text) {
