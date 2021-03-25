@@ -53,19 +53,19 @@
         padding-left: 20px;
       }
 
-      /* img {
-        height: 70vh;
-      }
-
-      #image_scroll {
-        height: 50vh;
+      #history {
+        border-top: 4px solid white;
         border-bottom: 4px solid white;
       }
 
-      .scroll_image {
-        width: 26vw;
-        overflow-x: scroll;
-      } */
+      .history_inner {
+        padding-left: 600px;
+        margin-right: 110px;
+      }
+
+      #image_scroll {
+        border-bottom: 4px solid white;
+      }
 
       #image_scroll a {
         display: inline-block;
@@ -81,14 +81,27 @@
         margin-left: 200px;
       }
 
-      #history {
-        border-top: 4px solid white;
-        border-bottom: 4px solid white;
+      #customer_says .sectionwrapper {
+        display: flex;
+        margin-top: 20px;
+        padding: 30px 30px 20px 30px;
       }
 
-      .history_inner {
-        padding-left: 600px;
-        margin-right: 110px;
+      #customer_says .coulmn {
+        flex-grow: 1;
+        flex-basis: 300px;
+        margin: 0px 30px 00px 30px;
+        padding: 25px;
+        flex-direction: row;
+      }
+
+      #customer_says {
+        background-color: #edf9f8;
+      }
+
+      #customer_says img {
+        width: 100%;
+        border-radius: 500px;
       }
     </style>
   </head>
@@ -147,22 +160,37 @@
       <div class="image_inner">
         <h2>DESIGN YOUR FLIGHTCASE</h2>
         <a href="configurator.html">Try it!</a>
-        <!-- <p>Scroll for example of personal look</p>
-        <div class="scroll_image">
-          <img src="images/scroll4.png" alt="two cases" />
-        </div> -->
       </div>
     </section>
 
-    <!-- 
-    <footer>
-      <div id="footer">
-        <p>The Flightcase Shop</p>
-        <p>Contact:</p>
-        <p>+45 00 00 00 00</p>
-        <p>somethingwithcase@goodmail.com</p>
+    <section id="customer_says">
+      <h2>CUSTOMERS SAYS:</h2>
+      <div class="sectionwrapper">
+        <div class="coulmn">
+          <div class="emoji">
+            <div>👍🏼</div>
+            <!-- <figure>
+              <img src="anmeldelse-1.jpg" alt="anmeldelse-1.jpg" />
+            </figure> -->
+          </div>
+          <div class="txt">
+            <p>"I'm very happy with my flightcase! It has a perfect size and I loved that I could style it in my own way, to make it personal!"</p>
+          </div>
+        </div>
+
+        <div class="coulmn">
+          <div class="emoji">
+            <div>👍🏼</div>
+            <!-- <figure>
+              <img src="anmeldelse-1.jpg" alt="anmeldelse-1.jpg" />
+            </figure> -->
+          </div>
+          <div class="txt">
+            <p>“Best buy ever! I really liked the webshop and that I could design the case myself“</p>
+          </div>
+        </div>
       </div>
-    </footer> -->
+    </section>
 
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
