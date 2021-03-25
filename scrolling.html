@@ -5,105 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - Advanced Animation Project</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="scrolling.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-    <style>
-      * {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: rgb(186, 189, 229);
-      }
-
-      h2 {
-        padding-top: 20px;
-        color: white;
-        font-family: "poppins", sans-serif;
-        font-size: 3em;
-        line-height: 1.5em;
-        font-weight: 900;
-      }
-
-      p {
-        line-height: 30px;
-        color: white;
-        font-family: "poppins", sans-serif;
-      }
-
-      li {
-        line-height: 30px;
-        color: white;
-        font-family: "poppins", sans-serif;
-      }
-
-      section {
-        height: 60vh;
-        max-width: 100%;
-      }
-
-      .the_container {
-        /* height: calc(100vh - 16.8px); */
-        border-top: 4px solid white;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        scroll-snap-type: y proximity;
-        perspective: 2px;
-      }
-
-      #about {
-        padding-left: 20px;
-      }
-
-      #history {
-        border-top: 4px solid white;
-        border-bottom: 4px solid white;
-      }
-
-      .history_inner {
-        padding-left: 600px;
-        margin-right: 110px;
-      }
-
-      #image_scroll {
-        border-bottom: 4px solid white;
-      }
-
-      #image_scroll a {
-        display: inline-block;
-        padding: 20px 40px;
-        background: #fff;
-        color: #111;
-        border-radius: 100px;
-        font-weight: 10px;
-        letter-spacing: 1px;
-        text-decoration: none;
-        text-transform: uppercase;
-        margin-top: 20px;
-        margin-left: 200px;
-      }
-
-      #customer_says .sectionwrapper {
-        display: flex;
-        margin-top: 20px;
-        padding: 30px 30px 20px 30px;
-      }
-
-      #customer_says .coulmn {
-        flex-grow: 1;
-        flex-basis: 300px;
-        margin: 0px 30px 00px 30px;
-        padding: 25px;
-        flex-direction: row;
-      }
-
-      #customer_says {
-        background-color: #edf9f8;
-      }
-
-      #customer_says img {
-        width: 100%;
-        border-radius: 500px;
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -156,39 +59,46 @@
       </section>
     </div>
 
-    <section id="image_scroll">
-      <div class="image_inner">
-        <h2>DESIGN YOUR FLIGHTCASE</h2>
-        <a href="configurator.html">Try it!</a>
-      </div>
-    </section>
-
     <section id="customer_says">
       <h2>CUSTOMERS SAYS:</h2>
       <div class="sectionwrapper">
         <div class="coulmn">
-          <div class="emoji">
-            <div>👍🏼</div>
-            <!-- <figure>
-              <img src="anmeldelse-1.jpg" alt="anmeldelse-1.jpg" />
-            </figure> -->
-          </div>
-          <div class="txt">
-            <p>"I'm very happy with my flightcase! It has a perfect size and I loved that I could style it in my own way, to make it personal!"</p>
+          <div class="image">
+            <figure>
+              <img src="images/customer1.png" alt="customer1.jpg" />
+            </figure>
+            <div class="txt">
+              <p>
+                "I'm very happy with my flightcase! <br />
+                It has a perfect size and <br />
+                I loved that I could style it in my <br />
+                own way to make it personal!"
+              </p>
+            </div>
           </div>
         </div>
 
         <div class="coulmn">
-          <div class="emoji">
-            <div>👍🏼</div>
-            <!-- <figure>
-              <img src="anmeldelse-1.jpg" alt="anmeldelse-1.jpg" />
-            </figure> -->
-          </div>
-          <div class="txt">
-            <p>“Best buy ever! I really liked the webshop and that I could design the case myself“</p>
+          <div class="image">
+            <figure>
+              <img src="images/customer2.png" alt="customer2.jpg" />
+            </figure>
+            <div class="txt">
+              <p>
+                “Best buy ever! <br />
+                I really liked the webshop and <br />
+                that I could design the case myself“
+              </p>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="design_it">
+      <div class="design_inner">
+        <h2>DESIGN YOUR FLIGHTCASE</h2>
+        <a href="configurator.html">Try it!</a>
       </div>
     </section>
 
@@ -200,7 +110,7 @@
       gsap.registerPlugin(ScrollTrigger);
 
       gsap.to("#about", {
-        xPercent: 50,
+        xPercent: 80,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",
@@ -210,20 +120,8 @@
         },
       });
 
-      gsap.to(".history_inner", {
-        // yPercent: -50,
-        xPercent: -40,
-        ease: "none",
-        scrollTrigger: {
-          //   trigger: ".pSection",
-          // start: "top bottom", // the default values
-          // end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      gsap.to(".image_inner", {
-        xPercent: 25,
+      gsap.to("#customer_says", {
+        xPercent: 80,
         ease: "none",
         scrollTrigger: {
           //   trigger: ".pSection",

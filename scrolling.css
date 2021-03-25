@@ -1,0 +1,151 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(186, 189, 229);
+}
+
+h2 {
+  padding-top: 20px;
+  color: white;
+  font-family: "poppins", sans-serif;
+  font-size: 3em;
+  line-height: 1.5em;
+  font-weight: 900;
+}
+
+p {
+  line-height: 30px;
+  color: white;
+  font-family: "poppins", sans-serif;
+}
+
+li {
+  line-height: 30px;
+  color: white;
+  font-family: "poppins", sans-serif;
+}
+
+section {
+  height: 60vh;
+  max-width: 100%;
+}
+
+.the_container {
+  /* height: calc(100vh - 16.8px); */
+  border-top: 4px solid white;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  perspective: 2px;
+}
+
+#about {
+  padding-left: 20px;
+}
+
+.history_inner {
+  padding-left: 20px;
+  margin-right: 800px;
+}
+
+#design_it a {
+  display: inline-block;
+  padding: 20px 40px;
+  background: #fff;
+  color: #111;
+  border-radius: 100px;
+  font-weight: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-left: 200px;
+}
+
+.design_inner {
+  margin-left: 400px;
+}
+
+#customer_says {
+  padding-left: 20px;
+  width: 800px;
+}
+
+#customer_says .sectionwrapper {
+  display: flex;
+}
+
+#customer_says .coulmn {
+  flex-grow: 2;
+  flex-basis: 200px;
+  padding: 10px;
+  flex-direction: row;
+}
+
+#customer_says img {
+  width: 200px;
+}
+
+/* MEDIA QUARIES */
+
+@media (max-width: 700px) {
+  section {
+    height: 60vh;
+    max-width: 100%;
+  }
+
+  .the_container {
+    /* height: calc(100vh - 16.8px); */
+    border-top: 4px solid white;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    perspective: 2px;
+  }
+
+  #about {
+    padding-left: 5px;
+  }
+
+  .history_inner {
+    padding-left: 5px;
+  }
+
+  #design_it a {
+    display: inline-block;
+    padding: 20px 40px;
+    background: #fff;
+    color: #111;
+    border-radius: 100px;
+    font-weight: 10px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-left: 200px;
+  }
+
+  .design_inner {
+    margin-left: 400px;
+  }
+
+  #customer_says {
+    padding-left: 5px;
+  }
+
+  #customer_says .sectionwrapper {
+    display: flex;
+  }
+
+  #customer_says .coulmn {
+    flex-grow: 2;
+    flex-basis: 200px;
+    padding: 10px;
+    flex-direction: row;
+  }
+
+  #customer_says img {
+    width: 200px;
+  }
+}
